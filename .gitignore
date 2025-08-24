@@ -1,0 +1,18 @@
+# created by virtualenv automatically
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.so
+
+# PyCharm files
+.idea/
+
+# Env
+*.env
+venv/
+.env/
+
+# OS stuff
+.DS_Store
+Thumbs.db
+
