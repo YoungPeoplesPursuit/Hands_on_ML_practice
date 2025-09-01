@@ -42,3 +42,36 @@ model.fit(X, y)
 
 # Make a prediction for Cyprus
 print(model.predict(X_new)) # outputs [[6.33333333]]
+
+'''
+How model.fit() works:
+
+# Fake data: y = 4 + 3x + noise
+np.random.seed(42)
+X = 2 * np.random.rand(100, 1)   # 100 points, 1 feature
+y = 4 + 3 * X + np.random.randn(100, 1)
+
+# Add bias term (column of 1s)
+X_b = np.c_[np.ones((100, 1)), X]  
+
+# Init weights randomly (w0 = bias, w1 = slope)
+theta = np.random.randn(2, 1)
+
+# Hyperparameters
+learning_rate = 0.1
+n_iterations = 1000
+m = len(X_b)
+
+for iteration in range(n_iterations):
+    # Predictions
+    y_pred = X_b.dot(theta) #generate random weights
+    
+    # Gradient of MSE wrt theta
+    gradients = 2/m * X_b.T.dot(y_pred - y) 
+    
+    # Update rule to get closer to the minimum 
+    theta -= learning_rate * gradients 
+
+print("Learned parameters (bias, slope):", theta.ravel())
+
+'''
